@@ -1,5 +1,6 @@
 from django.urls import path
 from secondapp import views
+from .views import index
 urlpatterns = [
     # path('jan/' , views.jan),
     # path('feb/' , views.feb),
@@ -13,5 +14,6 @@ urlpatterns = [
     # path('oct/' , views.oct),
     # path('nov/' , views.nov),
     # path('dec/' , views.dec),
-    path('<str:months>/',views.index),
+    # path('<str:months>/',index.as_view()),
+     path('jan/', index.as_view()),
 ]

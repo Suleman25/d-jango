@@ -1,15 +1,27 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.views import View
 
 # Create your views here.
-def index(request , months):
-    if months == 'jan':
-        return HttpResponse('<h1>hello world</h1>')
-    elif months == 'dec':
-        return HttpResponse('<h1>Winter Vacations</h1>')
-    else :
-        return HttpResponse('<h1>URL not found</h1>')
+# def index(request , months):
+#     if months == 'jan':
+#         return HttpResponse(request.method)
+#     elif months == 'dec':
+#         return HttpResponse('<h1>Winter Vacations</h1>')
+#     else :
+#         return HttpResponse('<h1>URL not found</h1>')
 
+# def index(request , months):
+#     if request.method == 'GET':
+#         return HttpResponse('<h1>hello world {}</h1>'.format(request.method))
+#     elif request.method == 'Post':
+#         return HttpResponse(f'<h1>Winter Vacations {request.method}</h1>')
+#     elif request.method == 'Put':
+#         return HttpResponse(f'<h1>Summer Vacations {request.method}</h1>')
+#     elif request.method == 'delete':
+#         return HttpResponse(f'<h1>Autumn Vacations {request.method}</h1>')
+#     else :
+#         return HttpResponse('<h1>URL not found</h1>')
 
 # def jan(request):
 #     return HttpResponse('<i>Front-End</i>')
@@ -36,3 +48,12 @@ def index(request , months):
 # def dec(request):
 #     return HttpResponse('<i>Mobile App Development</i>')
 
+class index(View):
+    def get(self , request):
+        method = request.method
+        return HttpResponse(f'response to GET request ,{method}')
+    
+
+# class index(View):
+#     def get(self , request):
+#         return HttpResponse('response to POST request')    
