@@ -49,9 +49,12 @@ from django.views import View
 #     return HttpResponse('<i>Mobile App Development</i>')
 
 class index(View):
-    def get(self , request):
+    def get(self , request , months):
+        months = self.kwargs.get('months')
         method = request.method
-        return HttpResponse(f'response to GET request ,{method}')
+        # return HttpResponse('<h1>django</h1> <br> <h1>python</h1>')
+        return HttpResponse(months)
+        
     
 
 # class index(View):

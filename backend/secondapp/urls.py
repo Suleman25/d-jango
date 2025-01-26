@@ -15,5 +15,7 @@ urlpatterns = [
     # path('nov/' , views.nov),
     # path('dec/' , views.dec),
     # path('<str:months>/',index.as_view()),
-     path('jan/', index.as_view()),
+    #  path('jan/', index.as_view()),
+    path('<str:months>/' ,index.as_view()),
+    # path('<str:months/' , views.index)
 ]
